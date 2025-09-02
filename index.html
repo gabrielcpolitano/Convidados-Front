@@ -562,6 +562,10 @@
     </div>
 
     <script>
+        // CONFIGURAÇÃO: URL do Backend
+        // Altere esta URL para apontar para onde seu backend está hospedado
+        const BACKEND_URL = 'https://convidados-api.onrender.com';
+        
         // Estado global
         let currentGuests = [];
         let filteredGuests = [];
@@ -582,7 +586,8 @@
                 options.body = JSON.stringify(data);
             }
             
-            const response = await fetch(endpoint, options);
+            const url = endpoint.startsWith('http') ? endpoint : `${BACKEND_URL}${endpoint}`;
+            const response = await fetch(url, options);
             return response.json();
         }
 
@@ -904,6 +909,15 @@
             }
         `;
         document.head.appendChild(style);
+        
+        // ========================================
+        // CONFIGURAÇÃO DO BACKEND
+        // ========================================
+        // Para conectar com seu backend, altere a variável BACKEND_URL no início deste arquivo.
+        // Exemplo: const BACKEND_URL = 'https://seu-backend.herokuapp.com';
+        // 
+        // Certifique-se de que seu backend tem CORS habilitado para aceitar requisições 
+        // de outros domínios.
     </script>
 </body>
 </html>
