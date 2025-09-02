@@ -1,1196 +1,1390 @@
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casamento Gabriel & Léliane - RSVP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #8B4B8C;
-            --primary-light: #B877B9;
-            --primary-dark: #6B3A6C;
-            --secondary: #F7E7F8;
-            --accent: #D4AF37;
-            --accent-light: #E6C556;
-            --muted: #F8FAFC;
-            --muted-dark: #F1F5F9;
-            --text-primary: #1E293B;
-            --text-secondary: #64748B;
-            --text-muted: #94A3B8;
-            --border: #E2E8F0;
-            --border-light: #F1F5F9;
-            --background: #FFFFFF;
-            --card: #FFFFFF;
-            --success: #10B981;
-            --error: #EF4444;
-            --warning: #F59E0B;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #F7E7F8 0%, #E6D7E8 50%, #D4C5E8 100%);
-            min-height: 100vh;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .font-display {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-light);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-2px);
-        }
-
-        .card-glass {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            gap: 8px;
-            font-size: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--secondary) 0%, #E6D7E8 100%);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-accent {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-accent:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-ghost:hover {
-            background: var(--muted);
-            color: var(--text-primary);
-        }
-
-        .btn-destructive {
-            background: linear-gradient(135deg, var(--error) 0%, #DC2626 100%);
-            color: white;
-        }
-
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 14px;
-            border-radius: 8px;
-        }
-
-        .input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            font-size: 16px;
-            background: var(--background);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(139, 75, 140, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 15px;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .table th {
-            background: linear-gradient(135deg, var(--muted) 0%, var(--muted-dark) 100%);
-            padding: 20px 16px;
-            text-align: left;
-            font-weight: 700;
-            color: var(--text-primary);
-            border: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .table td {
-            padding: 20px 16px;
-            border-bottom: 1px solid var(--border-light);
-            vertical-align: middle;
-        }
-
-        .table tr:hover {
-            background: var(--muted);
-        }
-
-        .table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            gap: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-confirmed {
-            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
-            color: white;
-        }
-
-        .badge-pending {
-            background: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
-            color: white;
-        }
-
-        .badge-noivo {
-            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            color: white;
-        }
-
-        .badge-noiva {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-card {
-            background: var(--card);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .stat-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(8px);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: var(--card);
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--border-light);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(139, 75, 140, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
-            border-radius: 24px;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(139, 75, 140, 0.05) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-
-        .hero-date {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .search-section {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            margin-right: 16px;
-            box-shadow: var(--shadow);
-        }
-
-        .guest-card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .guest-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        .admin-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .text-center { text-align: center; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-8 { margin-bottom: 2rem; }
-        .text-xl { font-size: 1.25rem; }
-        .text-2xl { font-size: 1.5rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .font-bold { font-weight: 700; }
-        .font-semibold { font-weight: 600; }
-        .text-muted { color: var(--text-muted); }
-        .flex { display: flex; }
-        .justify-between { justify-content: space-between; }
-        .items-center { align-items: center; }
-        .gap-2 { gap: 0.5rem; }
-        .gap-4 { gap: 1rem; }
-        .w-full { width: 100%; }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .card {
-                padding: 1.5rem;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-date {
-                font-size: 1.25rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .filter-buttons {
-                flex-direction: column;
-            }
-            
-            .table {
-                font-size: 14px;
-            }
-            
-            .table th,
-            .table td {
-                padding: 12px 8px;
-            }
-            
-            .modal-content {
-                padding: 2rem;
-            }
-        }
-
-        /* Animações de entrada */
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-
-        /* Scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--muted);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
-    </style>
-</head>
-<body>
-    <!-- Página Principal -->
-    <div id="main-page">
-        <div class="container">
-            <div class="hero-section fade-in">
-                <div class="hero-content">
-                    <h1 class="hero-title font-display">Gabriel & Leliane</h1>
-                    <p class="hero-date">01 de Novembro de 2025</p>
-                    <div class="search-section">
-                        <div class="form-group">
-                            <label class="label" for="search-input">Buscar seu nome na lista de convidados:</label>
-                            <input 
-                                type="text" 
-                                id="search-input" 
-                                class="input" 
-                                placeholder="Digite seu nome completo..." 
-                                data-testid="input-search"
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="search-results" class="hidden fade-in stagger-1">
-                <div class="card card-glass">
-                    <h3 class="font-semibold mb-4 text-xl">Resultados da busca:</h3>
-                    <div id="guests-list"></div>
-                </div>
-            </div>
-            
-            <div class="text-center fade-in stagger-2">
-                <button id="admin-btn" class="btn btn-ghost btn-sm" data-testid="button-admin">
-                    <i class="fas fa-cog"></i>
-                    Acesso Administrativo
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Confirmação -->
-    <div id="confirm-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <h2 class="font-display text-2xl font-bold mb-4 text-center">Confirmar Presença</h2>
-            <div class="text-center mb-4">
-                <i class="fas fa-heart text-3xl" style="color: var(--primary);"></i>
-            </div>
-            <p class="mb-4 text-center">Olá, <span id="guest-name" class="font-semibold" style="color: var(--primary);"></span>!</p>
-            <p class="mb-8 text-center text-muted">Você confirma sua presença no casamento de Gabriel & Léliane em 01/11/2025?</p>
-            
-            <div class="flex gap-4">
-                <button id="confirm-yes" class="btn btn-accent w-full" data-testid="button-confirm-yes">
-                    <i class="fas fa-check"></i>
-                    Sim, estarei presente!
-                </button>
-                <button id="confirm-no" class="btn btn-secondary w-full" data-testid="button-confirm-no">
-                    <i class="fas fa-times"></i>
-                    Não poderei ir
-                </button>
-            </div>
-            
-            <button id="close-modal" class="btn btn-ghost w-full" style="margin-top: 1rem;" data-testid="button-close-modal">
-                <i class="fas fa-times"></i>
-                Cancelar
-            </button>
-        </div>
-    </div>
-
-    <!-- Modal de Login Admin -->
-    <div id="login-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="text-center mb-4">
-                <i class="fas fa-shield-alt text-3xl" style="color: var(--primary);"></i>
-            </div>
-            <h2 class="font-display text-2xl font-bold mb-4 text-center">Login Administrativo</h2>
-            
-            <form id="login-form">
-                <div class="form-group">
-                    <label class="label" for="username">
-                        <i class="fas fa-user"></i>
-                        Usuário:
-                    </label>
-                    <input type="text" id="username" class="input" data-testid="input-username" placeholder="Digite seu usuário">
-                </div>
-                
-                <div class="form-group">
-                    <label class="label" for="password">
-                        <i class="fas fa-lock"></i>
-                        Senha:
-                    </label>
-                    <input type="password" id="password" class="input" data-testid="input-password" placeholder="Digite sua senha">
-                </div>
-                
-                <div class="flex gap-4">
-                    <button type="submit" class="btn btn-primary w-full" data-testid="button-login">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Entrar
-                    </button>
-                    <button type="button" id="close-login" class="btn btn-ghost w-full" data-testid="button-close-login">
-                        <i class="fas fa-times"></i>
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Painel Administrativo -->
-    <div id="admin-page" class="hidden">
-        <div class="container">
-            <div class="admin-header fade-in">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h1 class="font-display text-2xl font-bold">Painel Administrativo</h1>
-                        <p style="opacity: 0.9;">Casamento de Gabriel & Léliane – 01/11/2025</p>
-                    </div>
-                    <button id="logout-btn" class="btn btn-ghost" style="background: rgba(255,255,255,0.2); color: white;" data-testid="button-logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Sair
-                    </button>
-                </div>
-            </div>
-
-            <!-- Estatísticas -->
-            <div class="stats-grid fade-in stagger-1">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold" id="total-guests" data-testid="stat-total">0</p>
-                        <p class="text-muted">Total de Convidados</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, var(--success) 0%, #059669 100%);">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold" id="confirmed-guests" data-testid="stat-confirmed">0</p>
-                        <p class="text-muted">Presenças Confirmadas</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);">
-                        <i class="fas fa-male"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold" id="groom-guests" data-testid="stat-groom">0</p>
-                        <p class="text-muted">Lado do Noivo</p>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold" id="bride-guests" data-testid="stat-bride">0</p>
-                        <p class="text-muted">Lado da Noiva</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Filtros e Ações -->
-            <div class="card fade-in stagger-2">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="filter-buttons">
-                        <button class="btn btn-ghost filter-btn active" data-filter="all" data-testid="filter-all">
-                            <i class="fas fa-list"></i>
-                            Todos
-                        </button>
-                        <button class="btn btn-ghost filter-btn" data-filter="noivo" data-testid="filter-groom">
-                            <i class="fas fa-male"></i>
-                            Noivo
-                        </button>
-                        <button class="btn btn-ghost filter-btn" data-filter="noiva" data-testid="filter-bride">
-                            <i class="fas fa-female"></i>
-                            Noiva
-                        </button>
-                        <button class="btn btn-ghost filter-btn" data-filter="confirmed" data-testid="filter-confirmed">
-                            <i class="fas fa-check-circle"></i>
-                            Confirmados
-                        </button>
-                    </div>
-                    <button id="add-guest-btn" class="btn btn-primary" data-testid="button-add-guest">
-                        <i class="fas fa-plus"></i>
-                        Adicionar Convidado
-                    </button>
-                </div>
-
-                <!-- Tabela de Convidados -->
-                <div style="overflow-x: auto;">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th><i class="fas fa-user"></i> Nome</th>
-                                <th><i class="fas fa-heart"></i> Lado</th>
-                                <th><i class="fas fa-check-circle"></i> Status</th>
-                                <th><i class="fas fa-calendar"></i> Data</th>
-                                <th><i class="fas fa-cog"></i> Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="guests-table">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Adicionar Convidado -->
-    <div id="add-guest-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="text-center mb-4">
-                <i class="fas fa-user-plus text-3xl" style="color: var(--primary);"></i>
-            </div>
-            <h2 class="font-display text-2xl font-bold mb-4 text-center">Adicionar Convidado</h2>
-            
-            <form id="add-guest-form">
-                <div class="form-group">
-                    <label class="label" for="guest-name-input">
-                        <i class="fas fa-user"></i>
-                        Nome Completo:
-                    </label>
-                    <input type="text" id="guest-name-input" class="input" required data-testid="input-guest-name" placeholder="Digite o nome completo">
-                </div>
-                
-                <div class="form-group">
-                    <label class="label" for="guest-side-select">
-                        <i class="fas fa-heart"></i>
-                        Lado da Família:
-                    </label>
-                    <select id="guest-side-select" class="input" required data-testid="select-guest-side">
-                        <option value="">Selecione o lado...</option>
-                        <option value="noivo">Lado do Noivo</option>
-                        <option value="noiva">Lado da Noiva</option>
-                    </select>
-                </div>
-                
-                <div class="flex gap-4">
-                    <button type="submit" class="btn btn-primary w-full" data-testid="button-save-guest">
-                        <i class="fas fa-save"></i>
-                        Salvar Convidado
-                    </button>
-                    <button type="button" id="close-add-guest" class="btn btn-ghost w-full" data-testid="button-close-add-guest">
-                        <i class="fas fa-times"></i>
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // CONFIGURAÇÃO: URL do Backend
-        // Altere esta URL para apontar para onde seu backend está hospedado
-        const BACKEND_URL = 'https://convidados-api.onrender.com';
-        
-        // Estado global
-        let currentGuests = [];
-        let filteredGuests = [];
-        let currentFilter = 'all';
-        let isLoggedIn = false;
-        let selectedGuest = null;
-
-        // Funções de API
-        async function apiRequest(method, endpoint, data = null) {
-            const options = {
-                method,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            };
-            
-            if (data) {
-                options.body = JSON.stringify(data);
-            }
-            
-            const url = endpoint.startsWith('http') ? endpoint : `${BACKEND_URL}${endpoint}`;
-            const response = await fetch(url, options);
-            return response.json();
-        }
-
-        // Funções utilitárias
-        function showElement(id) {
-            const element = document.getElementById(id);
-            element.classList.remove('hidden');
-            element.classList.add('fade-in');
-        }
-
-        function hideElement(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        function showPage(pageId) {
-            document.getElementById('main-page').classList.add('hidden');
-            document.getElementById('admin-page').classList.add('hidden');
-            const targetPage = document.getElementById(pageId);
-            targetPage.classList.remove('hidden');
-            targetPage.classList.add('fade-in');
-        }
-
-        function updateStats() {
-            const total = currentGuests.length;
-            const confirmed = currentGuests.filter(g => g.present).length;
-            const groom = currentGuests.filter(g => g.side === 'noivo').length;
-            const bride = currentGuests.filter(g => g.side === 'noiva').length;
-
-            document.getElementById('total-guests').textContent = total;
-            document.getElementById('confirmed-guests').textContent = confirmed;
-            document.getElementById('groom-guests').textContent = groom;
-            document.getElementById('bride-guests').textContent = bride;
-        }
-
-        function applyFilter(filter) {
-            currentFilter = filter;
-            
-            switch (filter) {
-                case 'noivo':
-                    filteredGuests = currentGuests.filter(g => g.side === 'noivo');
-                    break;
-                case 'noiva':
-                    filteredGuests = currentGuests.filter(g => g.side === 'noiva');
-                    break;
-                case 'confirmed':
-                    filteredGuests = currentGuests.filter(g => g.present);
-                    break;
-                default:
-                    filteredGuests = [...currentGuests];
-            }
-            
-            renderGuestsTable();
-            
-            // Update filter button styles
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.filter === filter) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        function renderGuestsTable() {
-            const tbody = document.getElementById('guests-table');
-            tbody.innerHTML = '';
-            
-            filteredGuests.forEach((guest, index) => {
-                const row = document.createElement('tr');
-                row.style.animationDelay = `${index * 0.1}s`;
-                row.classList.add('fade-in');
-                row.innerHTML = `
-                    <td>
-                        <div class="flex items-center">
-                            <div class="avatar">
-                                ${guest.name[0]}
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Casamento Gabriel & Léliane - RSVP</title>
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Libertinus+Serif+Display:wght@400;700&display=swap" rel="stylesheet">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+
+                        :root {
+                            --primary: #8B4B8C;
+                            --primary-light: #B877B9;
+                            --primary-dark: #6B3A6C;
+                            --secondary: #F7E7F8;
+                            --accent: #D4AF37;
+                            --accent-light: #E6C556;
+                            --muted: #F8FAFC;
+                            --muted-dark: #F1F5F9;
+                            --text-primary: #1E293B;
+                            --text-secondary: #64748B;
+                            --text-muted: #94A3B8;
+                            --border: #E2E8F0;
+                            --border-light: #F1F5F9;
+                            --background: #FFFFFF;
+                            --card: #FFFFFF;
+                            --success: #10B981;
+                            --error: #EF4444;
+                            --warning: #F59E0B;
+                            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+                            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+                            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+                            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+                            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+                        }
+
+                        body {
+                            font-family: 'Inter', sans-serif;
+                            background: linear-gradient(135deg, #F7E7F8 0%, #E6D7E8 50%, #D4C5E8 100%);
+                            min-height: 100vh;
+                            color: var(--text-primary);
+                            line-height: 1.6;
+                        }
+
+                        .font-display {
+                            font-family: 'Playfair Display', serif;
+                        }
+
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 2rem;
+                        }
+
+                        .card {
+                            background: var(--card);
+                            border-radius: 20px;
+                            box-shadow: 
+                                0 20px 40px -12px rgba(139, 75, 140, 0.15),
+                                0 8px 16px -8px rgba(139, 75, 140, 0.1),
+                                0 0 0 1px rgba(139, 75, 140, 0.05);
+                            border: 1px solid var(--border-light);
+                            padding: 2.5rem;
+                            margin-bottom: 2rem;
+                            backdrop-filter: blur(20px);
+                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .card::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 4px;
+                            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        }
+
+                        .card:hover::before {
+                            opacity: 1;
+                        }
+
+                        .card:hover {
+                            box-shadow: 
+                                0 32px 64px -12px rgba(139, 75, 140, 0.25),
+                                0 16px 32px -8px rgba(139, 75, 140, 0.15),
+                                0 0 0 1px rgba(139, 75, 140, 0.1);
+                            transform: translateY(-8px);
+                        }
+
+                        .card-glass {
+                            background: rgba(255, 255, 255, 0.98);
+                            backdrop-filter: blur(30px);
+                            border: 1px solid rgba(139, 75, 140, 0.1);
+                        }
+
+                        .btn {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 14px 28px;
+                            border-radius: 12px;
+                            font-weight: 600;
+                            text-decoration: none;
+                            border: none;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            gap: 8px;
+                            font-size: 15px;
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .btn::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: -100%;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                            transition: left 0.5s;
+                        }
+
+                        .btn:hover::before {
+                            left: 100%;
+                        }
+
+                        .btn-primary {
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+                            color: white;
+                            box-shadow: var(--shadow-md);
+                        }
+
+                        .btn-primary:hover {
+                            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+                            box-shadow: var(--shadow-lg);
+                            transform: translateY(-2px);
+                        }
+
+                        .btn-secondary {
+                            background: linear-gradient(135deg, var(--secondary) 0%, #E6D7E8 100%);
+                            color: var(--primary);
+                            border: 2px solid var(--primary);
+                        }
+
+                        .btn-secondary:hover {
+                            background: var(--primary);
+                            color: white;
+                        }
+
+                        .btn-accent {
+                            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+                            color: white;
+                            box-shadow: var(--shadow-md);
+                        }
+
+                        .btn-accent:hover {
+                            transform: translateY(-2px);
+                            box-shadow: var(--shadow-lg);
+                        }
+
+                        .btn-ghost {
+                            background: transparent;
+                            color: var(--text-secondary);
+                            border: 1px solid var(--border);
+                        }
+
+                        .btn-ghost:hover {
+                            background: var(--muted);
+                            color: var(--text-primary);
+                        }
+
+                        .btn-destructive {
+                            background: linear-gradient(135deg, var(--error) 0%, #DC2626 100%);
+                            color: white;
+                        }
+
+                        .btn-sm {
+                            padding: 8px 16px;
+                            font-size: 14px;
+                            border-radius: 8px;
+                        }
+
+                        .input {
+                            width: 100%;
+                            padding: 16px 20px;
+                            border: 2px solid var(--border);
+                            border-radius: 12px;
+                            font-size: 16px;
+                            background: var(--background);
+                            color: var(--text-primary);
+                            transition: all 0.3s ease;
+                            font-family: inherit;
+                        }
+
+                        .input:focus {
+                            outline: none;
+                            border-color: var(--primary);
+                            box-shadow: 0 0 0 3px rgba(139, 75, 140, 0.1);
+                            transform: translateY(-1px);
+                        }
+
+                        .form-group {
+                            margin-bottom: 1.5rem;
+                        }
+
+                        .label {
+                            display: block;
+                            margin-bottom: 8px;
+                            font-weight: 600;
+                            color: var(--text-primary);
+                            font-size: 15px;
+                        }
+
+                        .table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            background: var(--card);
+                            border-radius: 12px;
+                            overflow: hidden;
+                            box-shadow: var(--shadow);
+                        }
+
+                        .table th {
+                            background: linear-gradient(135deg, var(--muted) 0%, var(--muted-dark) 100%);
+                            padding: 20px 16px;
+                            text-align: left;
+                            font-weight: 700;
+                            color: var(--text-primary);
+                            border: none;
+                            font-size: 14px;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                        }
+
+                        .table td {
+                            padding: 20px 16px;
+                            border-bottom: 1px solid var(--border-light);
+                            vertical-align: middle;
+                        }
+
+                        .table tr:hover {
+                            background: var(--muted);
+                        }
+
+                        .table tr:last-child td {
+                            border-bottom: none;
+                        }
+
+                        .badge {
+                            display: inline-flex;
+                            align-items: center;
+                            padding: 6px 12px;
+                            border-radius: 20px;
+                            font-size: 12px;
+                            font-weight: 600;
+                            gap: 4px;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                        }
+
+                        .badge-confirmed {
+                            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+                            color: white;
+                        }
+
+                        .badge-pending {
+                            background: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
+                            color: white;
+                        }
+
+                        .badge-noivo {
+                            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+                            color: white;
+                        }
+
+                        .badge-noiva {
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+                            color: white;
+                        }
+
+                        .stats-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                            gap: 2rem;
+                            margin-bottom: 3rem;
+                        }
+
+                        .stat-card {
+                            background: var(--card);
+                            padding: 2rem;
+                            border-radius: 16px;
+                            border: 1px solid var(--border-light);
+                            display: flex;
+                            align-items: center;
+                            gap: 1.5rem;
+                            box-shadow: var(--shadow-md);
+                            transition: all 0.3s ease;
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .stat-card::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 4px;
+                            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+                        }
+
+                        .stat-card:hover {
+                            transform: translateY(-4px);
+                            box-shadow: var(--shadow-xl);
+                        }
+
+                        .stat-icon {
+                            width: 64px;
+                            height: 64px;
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+                            border-radius: 16px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 24px;
+                            box-shadow: var(--shadow);
+                        }
+
+                        .filter-buttons {
+                            display: flex;
+                            gap: 1rem;
+                            margin-bottom: 2rem;
+                            flex-wrap: wrap;
+                        }
+
+                        .filter-btn {
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .filter-btn.active {
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+                            color: white;
+                            box-shadow: var(--shadow-md);
+                        }
+
+                        .hidden {
+                            display: none !important;
+                        }
+
+                        .loading {
+                            opacity: 0.6;
+                            pointer-events: none;
+                        }
+
+                        .modal-overlay {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(0, 0, 0, 0.6);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            z-index: 1000;
+                            backdrop-filter: blur(8px);
+                            animation: fadeIn 0.3s ease;
+                        }
+
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+
+                        .modal-content {
+                            background: var(--card);
+                            padding: 3rem;
+                            border-radius: 20px;
+                            max-width: 500px;
+                            width: 90%;
+                            max-height: 80vh;
+                            overflow-y: auto;
+                            box-shadow: var(--shadow-xl);
+                            border: 1px solid var(--border-light);
+                            animation: slideUp 0.3s ease;
+                        }
+
+                        @keyframes slideUp {
+                            from { 
+                                opacity: 0;
+                                transform: translateY(30px);
+                            }
+                            to { 
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
+                        .hero-section {
+                            text-align: center;
+                            padding: 6rem 2rem;
+                            background: linear-gradient(135deg, 
+                                rgba(139, 75, 140, 0.08) 0%, 
+                                rgba(212, 175, 55, 0.08) 50%,
+                                rgba(247, 231, 248, 0.15) 100%
+                            );
+                            border-radius: 32px;
+                            margin-bottom: 4rem;
+                            position: relative;
+                            overflow: hidden;
+                            box-shadow: 
+                                0 25px 50px -12px rgba(139, 75, 140, 0.25),
+                                0 0 0 1px rgba(139, 75, 140, 0.05);
+                            backdrop-filter: blur(20px);
+                        }
+
+                        .hero-section::before {
+                            content: '';
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: 
+                                radial-gradient(circle at 30% 30%, rgba(139, 75, 140, 0.1) 0%, transparent 50%),
+                                radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+                            animation: rotate 30s linear infinite;
+                        }
+
+                        .hero-section::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: 
+                                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 50%, transparent 70%),
+                                linear-gradient(-45deg, transparent 30%, rgba(139, 75, 140, 0.02) 50%, transparent 70%);
+                            pointer-events: none;
+                        }
+
+                        @keyframes rotate {
+                            from { transform: rotate(0deg); }
+                            to { transform: rotate(360deg); }
+                        }
+
+                        .hero-content {
+                            position: relative;
+                            z-index: 2;
+                        }
+
+                        .hero-title {
+                            font-family: 'Libertinus Serif Display', serif;
+                            font-size: 6rem;
+                            font-weight: 700;
+                            background: linear-gradient(135deg, 
+                                var(--primary) 0%, 
+                                var(--primary-light) 30%,
+                                var(--accent) 70%,
+                                var(--accent-light) 100%
+                            );
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            margin-bottom: 0.5rem;
+                            text-shadow: 0 4px 8px rgba(139, 75, 140, 0.1);
+                            letter-spacing: -0.02em;
+                            line-height: 1.1;
+                        }
+
+                        .hero-subtitle {
+                            font-family: 'Dancing Script', cursive;
+                            font-size: 3rem;
+                            font-weight: 600;
+                            color: var(--primary);
+                            margin-bottom: 1.5rem;
+                            text-shadow: 0 2px 4px rgba(139, 75, 140, 0.1);
+                            letter-spacing: 0.02em;
+                        }
+
+                        .hero-date {
+                            font-size: 1.75rem;
+                            color: var(--text-primary);
+                            margin-bottom: 3rem;
+                            font-weight: 600;
+                            font-family: 'Playfair Display', serif;
+                            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            position: relative;
+                        }
+
+                        .hero-date::before {
+                            content: '✨';
+                            position: absolute;
+                            left: -3rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 1.5rem;
+                        }
+
+                        .hero-date::after {
+                            content: '✨';
+                            position: absolute;
+                            right: -3rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 1.5rem;
+                        }
+
+                        .search-section {
+                            max-width: 700px;
+                            margin: 0 auto;
+                            position: relative;
+                        }
+
+                        .search-section::before {
+                            content: '';
+                            position: absolute;
+                            top: -2rem;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 100px;
+                            height: 4px;
+                            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+                            border-radius: 2px;
+                            opacity: 0.3;
+                        }
+
+                        .search-input-wrapper {
+                            position: relative;
+                        }
+
+                        .search-input-wrapper::before {
+                            content: '\f002';
+                            font-family: 'Font Awesome 6 Free';
+                            font-weight: 900;
+                            position: absolute;
+                            left: 20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: var(--text-muted);
+                            font-size: 18px;
+                            z-index: 1;
+                        }
+
+                        .search-input-wrapper .input {
+                            padding-left: 60px;
+                            background: rgba(255, 255, 255, 0.95);
+                            border: 2px solid rgba(139, 75, 140, 0.1);
+                            box-shadow: 
+                                0 10px 25px -5px rgba(139, 75, 140, 0.1),
+                                0 4px 6px -2px rgba(139, 75, 140, 0.05);
+                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                        }
+
+                        .search-input-wrapper .input:focus {
+                            border-color: var(--primary);
+                            box-shadow: 
+                                0 0 0 4px rgba(139, 75, 140, 0.1),
+                                0 20px 40px -10px rgba(139, 75, 140, 0.2);
+                            transform: translateY(-2px);
+                        }
+
+                        .avatar {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-weight: 700;
+                            margin-right: 16px;
+                            box-shadow: var(--shadow);
+                        }
+
+                        .guest-card {
+                            background: var(--card);
+                            border-radius: 20px;
+                            padding: 2rem;
+                            margin-bottom: 1.5rem;
+                            border: 1px solid rgba(139, 75, 140, 0.08);
+                            box-shadow: 
+                                0 8px 25px -8px rgba(139, 75, 140, 0.15),
+                                0 4px 12px -4px rgba(139, 75, 140, 0.1);
+                            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .guest-card::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 3px;
+                            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+                            transform: scaleX(0);
+                            transition: transform 0.3s ease;
+                        }
+
+                        .guest-card:hover::before {
+                            transform: scaleX(1);
+                        }
+
+                        .guest-card:hover {
+                            box-shadow: 
+                                0 20px 40px -8px rgba(139, 75, 140, 0.25),
+                                0 8px 20px -4px rgba(139, 75, 140, 0.15);
+                            transform: translateY(-6px);
+                            border-color: rgba(139, 75, 140, 0.15);
+                        }
+
+                        .admin-header {
+                            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+                            color: white;
+                            padding: 2rem;
+                            border-radius: 20px;
+                            margin-bottom: 3rem;
+                            box-shadow: var(--shadow-lg);
+                        }
+
+                        .text-center { text-align: center; }
+                        .mb-4 { margin-bottom: 1rem; }
+                        .mb-8 { margin-bottom: 2rem; }
+                        .text-xl { font-size: 1.25rem; }
+                        .text-2xl { font-size: 1.5rem; }
+                        .text-3xl { font-size: 1.875rem; }
+                        .font-bold { font-weight: 700; }
+                        .font-semibold { font-weight: 600; }
+                        .text-muted { color: var(--text-muted); }
+                        .flex { display: flex; }
+                        .justify-between { justify-content: space-between; }
+                        .items-center { align-items: center; }
+                        .gap-2 { gap: 0.5rem; }
+                        .gap-4 { gap: 1rem; }
+                        .w-full { width: 100%; }
+
+                        @media (max-width: 768px) {
+                            .container {
+                                padding: 1rem;
+                            }
+
+                            .card {
+                                padding: 1.5rem;
+                                border-radius: 16px;
+                            }
+
+                            .hero-section {
+                                padding: 4rem 1.5rem;
+                                border-radius: 24px;
+                            }
+
+                            .hero-subtitle {
+                                font-size: 2rem;
+                            }
+
+                            .hero-title {
+                                font-size: 3.5rem;
+                                line-height: 1.1;
+                            }
+
+                            .hero-date {
+                                font-size: 1.4rem;
+                            }
+
+                            .hero-date::before,
+                            .hero-date::after {
+                                display: none;
+                            }
+
+                            .search-section {
+                                max-width: 100%;
+                            }
+
+                            .guest-card {
+                                padding: 1.5rem;
+                                border-radius: 16px;
+                            }
+
+                            .stats-grid {
+                                grid-template-columns: 1fr;
+                                gap: 1rem;
+                            }
+
+                            .filter-buttons {
+                                flex-direction: column;
+                            }
+
+                            .table {
+                                font-size: 14px;
+                            }
+
+                            .table th,
+                            .table td {
+                                padding: 12px 8px;
+                            }
+
+                            .modal-content {
+                                padding: 2rem;
+                                border-radius: 16px;
+                            }
+                        }
+
+                        /* Animações de entrada */
+                        .fade-in {
+                            animation: fadeInUp 0.6s ease forwards;
+                        }
+
+                        @keyframes fadeInUp {
+                            from {
+                                opacity: 0;
+                                transform: translateY(30px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+
+                        .stagger-1 { animation-delay: 0.1s; }
+                        .stagger-2 { animation-delay: 0.2s; }
+                        .stagger-3 { animation-delay: 0.3s; }
+                        .stagger-4 { animation-delay: 0.4s; }
+
+                        /* Scrollbar personalizada */
+                        ::-webkit-scrollbar {
+                            width: 8px;
+                        }
+
+                        ::-webkit-scrollbar-track {
+                            background: var(--muted);
+                        }
+
+                        ::-webkit-scrollbar-thumb {
+                            background: var(--primary);
+                            border-radius: 4px;
+                        }
+
+                        ::-webkit-scrollbar-thumb:hover {
+                            background: var(--primary-dark);
+                        }
+                    </style>
+                </head>
+                <body>
+                    <!-- Página Principal -->
+                    <div id="main-page">
+                        <div class="container">
+                            <div class="hero-section fade-in">
+                                <div class="hero-content">
+                                    <h2 class="hero-subtitle">Casamento</h2>
+                                    <h1 class="hero-title">Gabriel & Leliane</h1>
+                                    <p class="hero-date">01 de Novembro de 2025</p>
+                                    <div class="search-section">
+                                        <div class="form-group">
+                                            <label class="label" for="search-input" style="font-size: 1.1rem; margin-bottom: 1.5rem; text-align: center; display: block;">
+                                                Buscar seu nome na lista de convidados
+                                            </label>
+                                            <div class="search-input-wrapper">
+                                                <input 
+                                                    type="text" 
+                                                    id="search-input" 
+                                                    class="input" 
+                                                    placeholder="Digite seu nome completo..." 
+                                                    data-testid="input-search"
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <span class="font-semibold">${guest.name}</span>
+
+                            <div id="search-results" class="hidden fade-in stagger-1">
+                                <div class="card card-glass">
+                                    <h3 class="font-semibold mb-4 text-xl">Resultados da busca:</h3>
+                                    <div id="guests-list"></div>
+                                </div>
+                            </div>
+
+                            <div class="text-center fade-in stagger-2">
+                                <button id="admin-btn" class="btn btn-ghost btn-sm" data-testid="button-admin">
+                                    <i class="fas fa-cog"></i>
+                                    Acesso Administrativo
+                                </button>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <span class="badge badge-${guest.side}">
-                            <i class="fas fa-${guest.side === 'noivo' ? 'male' : 'female'}"></i>
-                            ${guest.side === 'noivo' ? 'Noivo' : 'Noiva'}
-                        </span>
-                    </td>
-                    <td>
-                        <span class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
-                            <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
-                            ${guest.present ? 'Confirmado' : 'Pendente'}
-                        </span>
-                    </td>
-                    <td class="text-muted">
-                        ${guest.createdAt ? new Date(guest.createdAt).toLocaleDateString('pt-BR') : '-'}
-                    </td>
-                    <td>
-                        <div class="flex gap-2">
-                            <button 
-                                class="btn btn-ghost btn-sm" 
-                                onclick="togglePresence(${guest.id}, ${!guest.present})"
-                                data-testid="button-toggle-${guest.id}"
-                                title="${guest.present ? 'Cancelar presença' : 'Confirmar presença'}"
-                            >
-                                <i class="fas fa-${guest.present ? 'times' : 'check'}-circle"></i>
-                            </button>
-                            <button 
-                                class="btn btn-ghost btn-sm" 
-                                onclick="deleteGuest(${guest.id}, '${guest.name}')"
-                                style="color: var(--error);"
-                                data-testid="button-delete-${guest.id}"
-                                title="Remover convidado"
-                            >
-                                <i class="fas fa-trash"></i>
+                    </div>
+
+                    <!-- Modal de Confirmação -->
+                    <div id="confirm-modal" class="modal-overlay hidden">
+                        <div class="modal-content">
+                            <h2 class="font-display text-2xl font-bold mb-4 text-center">Confirmar Presença</h2>
+                            <div class="text-center mb-4">
+                                <i class="fas fa-heart text-3xl" style="color: var(--primary);"></i>
+                            </div>
+                            <p class="mb-4 text-center">Olá, <span id="guest-name" class="font-semibold" style="color: var(--primary);"></span>!</p>
+                            <p class="mb-8 text-center text-muted">Você confirma sua presença no casamento de Gabriel & Léliane em 01/11/2025?</p>
+
+                            <div class="flex gap-4">
+                                <button id="confirm-yes" class="btn btn-accent w-full" data-testid="button-confirm-yes">
+                                    <i class="fas fa-check"></i>
+                                    Sim, estarei presente!
+                                </button>
+                                <button id="confirm-no" class="btn btn-secondary w-full" data-testid="button-confirm-no">
+                                    <i class="fas fa-times"></i>
+                                    Não poderei ir
+                                </button>
+                            </div>
+
+                            <button id="close-modal" class="btn btn-ghost w-full" style="margin-top: 1rem;" data-testid="button-close-modal">
+                                <i class="fas fa-times"></i>
+                                Cancelar
                             </button>
                         </div>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
+                    </div>
 
-        function renderSearchResults(guests) {
-            const container = document.getElementById('guests-list');
-            container.innerHTML = '';
-            
-            if (guests.length === 0) {
-                container.innerHTML = '<p class="text-muted text-center">Nenhum convidado encontrado com esse nome.</p>';
-                return;
-            }
-            
-            guests.forEach((guest, index) => {
-                const guestCard = document.createElement('div');
-                guestCard.className = 'guest-card fade-in';
-                guestCard.style.animationDelay = `${index * 0.1}s`;
-                guestCard.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-4">
-                            <div class="avatar">
-                                ${guest.name[0]}
+                    <!-- Modal de Login Admin -->
+                    <div id="login-modal" class="modal-overlay hidden">
+                        <div class="modal-content">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-shield-alt text-3xl" style="color: var(--primary);"></i>
                             </div>
-                            <div>
-                                <h3 class="font-semibold text-lg">${guest.name}</h3>
-                                <p class="text-muted">${guest.side === 'noivo' ? 'Lado do Noivo' : 'Lado da Noiva'}</p>
-                                <span class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
-                                    <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
-                                    ${guest.present ? 'Presença Confirmada' : 'Aguardando Confirmação'}
-                                </span>
+                            <h2 class="font-display text-2xl font-bold mb-4 text-center">Login Administrativo</h2>
+
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label class="label" for="username">
+                                        <i class="fas fa-user"></i>
+                                        Usuário:
+                                    </label>
+                                    <input type="text" id="username" class="input" data-testid="input-username" placeholder="Digite seu usuário">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="label" for="password">
+                                        <i class="fas fa-lock"></i>
+                                        Senha:
+                                    </label>
+                                    <input type="password" id="password" class="input" data-testid="input-password" placeholder="Digite sua senha">
+                                </div>
+
+                                <div class="flex gap-4">
+                                    <button type="submit" class="btn btn-primary w-full" data-testid="button-login">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        Entrar
+                                    </button>
+                                    <button type="button" id="close-login" class="btn btn-ghost w-full" data-testid="button-close-login">
+                                        <i class="fas fa-times"></i>
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Painel Administrativo -->
+                    <div id="admin-page" class="hidden">
+                        <div class="container">
+                            <div class="admin-header fade-in">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h1 class="font-display text-2xl font-bold">Painel Administrativo</h1>
+                                        <p style="opacity: 0.9;">Casamento de Gabriel & Léliane – 01/11/2025</p>
+                                    </div>
+                                    <button id="logout-btn" class="btn btn-ghost" style="background: rgba(255,255,255,0.2); color: white;" data-testid="button-logout">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Sair
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Estatísticas -->
+                            <div class="stats-grid fade-in stagger-1">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold" id="total-guests" data-testid="stat-total">0</p>
+                                        <p class="text-muted">Total de Convidados</p>
+                                    </div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon" style="background: linear-gradient(135deg, var(--success) 0%, #059669 100%);">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold" id="confirmed-guests" data-testid="stat-confirmed">0</p>
+                                        <p class="text-muted">Presenças Confirmadas</p>
+                                    </div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);">
+                                        <i class="fas fa-male"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold" id="groom-guests" data-testid="stat-groom">0</p>
+                                        <p class="text-muted">Lado do Noivo</p>
+                                    </div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                                        <i class="fas fa-female"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold" id="bride-guests" data-testid="stat-bride">0</p>
+                                        <p class="text-muted">Lado da Noiva</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Filtros e Ações -->
+                            <div class="card fade-in stagger-2">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="filter-buttons">
+                                        <button class="btn btn-ghost filter-btn active" data-filter="all" data-testid="filter-all">
+                                            <i class="fas fa-list"></i>
+                                            Todos
+                                        </button>
+                                        <button class="btn btn-ghost filter-btn" data-filter="noivo" data-testid="filter-groom">
+                                            <i class="fas fa-male"></i>
+                                            Noivo
+                                        </button>
+                                        <button class="btn btn-ghost filter-btn" data-filter="noiva" data-testid="filter-bride">
+                                            <i class="fas fa-female"></i>
+                                            Noiva
+                                        </button>
+                                        <button class="btn btn-ghost filter-btn" data-filter="confirmed" data-testid="filter-confirmed">
+                                            <i class="fas fa-check-circle"></i>
+                                            Confirmados
+                                        </button>
+                                    </div>
+                                    <button id="add-guest-btn" class="btn btn-primary" data-testid="button-add-guest">
+                                        <i class="fas fa-plus"></i>
+                                        Adicionar Convidado
+                                    </button>
+                                </div>
+
+                                <!-- Tabela de Convidados -->
+                                <div style="overflow-x: auto;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th><i class="fas fa-user"></i> Nome</th>
+                                                <th><i class="fas fa-heart"></i> Lado</th>
+                                                <th><i class="fas fa-check-circle"></i> Status</th>
+                                                <th><i class="fas fa-calendar"></i> Data</th>
+                                                <th><i class="fas fa-cog"></i> Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="guests-table">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <button 
-                            class="btn ${guest.present ? 'btn-secondary' : 'btn-accent'}" 
-                            onclick="selectGuest(${guest.id}, '${guest.name}', ${guest.present})"
-                            data-testid="button-select-${guest.id}"
-                        >
-                            <i class="fas fa-${guest.present ? 'edit' : 'check'}"></i>
-                            ${guest.present ? 'Alterar' : 'Confirmar'}
-                        </button>
                     </div>
-                `;
-                container.appendChild(guestCard);
-            });
-        }
 
-        // Funções principais
-        async function searchGuests() {
-            const query = document.getElementById('search-input').value.trim();
-            
-            if (query.length < 2) {
-                hideElement('search-results');
-                return;
-            }
-            
-            try {
-                const guests = await apiRequest('GET', `/api/guests?search=${encodeURIComponent(query)}`);
-                renderSearchResults(guests);
-                showElement('search-results');
-            } catch (error) {
-                console.error('Erro ao buscar convidados:', error);
-            }
-        }
+                    <!-- Modal Adicionar Convidado -->
+                    <div id="add-guest-modal" class="modal-overlay hidden">
+                        <div class="modal-content">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-user-plus text-3xl" style="color: var(--primary);"></i>
+                            </div>
+                            <h2 class="font-display text-2xl font-bold mb-4 text-center">Adicionar Convidado</h2>
 
-        function selectGuest(id, name, currentPresent) {
-            selectedGuest = { id, name, present: currentPresent };
-            document.getElementById('guest-name').textContent = name;
-            showElement('confirm-modal');
-        }
+                            <form id="add-guest-form">
+                                <div class="form-group">
+                                    <label class="label" for="guest-name-input">
+                                        <i class="fas fa-user"></i>
+                                        Nome Completo:
+                                    </label>
+                                    <input type="text" id="guest-name-input" class="input" required data-testid="input-guest-name" placeholder="Digite o nome completo">
+                                </div>
 
-        async function confirmPresence(present) {
-            if (!selectedGuest) return;
-            
-            try {
-                await apiRequest('POST', `/api/guests/${selectedGuest.id}/presence`, { present });
-                hideElement('confirm-modal');
-                
-                // Refresh search results
-                const query = document.getElementById('search-input').value.trim();
-                if (query.length >= 2) {
-                    searchGuests();
-                }
-                
-                alert(present ? '🎉 Presença confirmada com sucesso!' : 'Presença cancelada.');
-            } catch (error) {
-                console.error('Erro ao confirmar presença:', error);
-                alert('Erro ao confirmar presença. Tente novamente.');
-            }
-        }
+                                <div class="form-group">
+                                    <label class="label" for="guest-side-select">
+                                        <i class="fas fa-heart"></i>
+                                        Lado da Família:
+                                    </label>
+                                    <select id="guest-side-select" class="input" required data-testid="select-guest-side">
+                                        <option value="">Selecione o lado...</option>
+                                        <option value="noivo">Lado do Noivo</option>
+                                        <option value="noiva">Lado da Noiva</option>
+                                    </select>
+                                </div>
 
-        async function login(username, password) {
-            try {
-                const result = await apiRequest('POST', '/api/login', { username, password });
-                
-                if (result.success) {
-                    isLoggedIn = true;
-                    hideElement('login-modal');
-                    showPage('admin-page');
-                    await loadGuests();
-                } else {
-                    alert('Credenciais inválidas');
-                }
-            } catch (error) {
-                console.error('Erro no login:', error);
-                alert('Erro no login. Tente novamente.');
-            }
-        }
+                                <div class="flex gap-4">
+                                    <button type="submit" class="btn btn-primary w-full" data-testid="button-save-guest">
+                                        <i class="fas fa-save"></i>
+                                        Salvar Convidado
+                                    </button>
+                                    <button type="button" id="close-add-guest" class="btn btn-ghost w-full" data-testid="button-close-add-guest">
+                                        <i class="fas fa-times"></i>
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-        async function loadGuests() {
-            try {
-                currentGuests = await apiRequest('GET', '/api/guests');
-                currentGuests.sort((a, b) => a.name.localeCompare(b.name));
-                updateStats();
-                applyFilter(currentFilter);
-            } catch (error) {
-                console.error('Erro ao carregar convidados:', error);
-            }
-        }
+                    <script>
+                        // CONFIGURAÇÃO: URL do Backend
+                        // Altere esta URL para apontar para onde seu backend está hospedado
+                        const BACKEND_URL = 'https://convidados-api.onrender.com';
 
-        async function togglePresence(id, present) {
-            try {
-                await apiRequest('POST', `/api/guests/${id}/presence`, { present });
-                await loadGuests();
-            } catch (error) {
-                console.error('Erro ao alterar presença:', error);
-                alert('Erro ao alterar presença. Tente novamente.');
-            }
-        }
+                        // Estado global
+                        let currentGuests = [];
+                        let filteredGuests = [];
+                        let currentFilter = 'all';
+                        let isLoggedIn = false;
+                        let selectedGuest = null;
 
-        async function deleteGuest(id, name) {
-            if (!confirm(`Tem certeza que deseja remover ${name} da lista de convidados?`)) {
-                return;
-            }
-            
-            try {
-                await apiRequest('DELETE', `/api/guests/${id}`);
-                await loadGuests();
-            } catch (error) {
-                console.error('Erro ao remover convidado:', error);
-                alert('Erro ao remover convidado. Tente novamente.');
-            }
-        }
+                        // Funções de API
+                        async function apiRequest(method, endpoint, data = null) {
+                            const options = {
+                                method,
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                            };
 
-        async function addGuest(name, side) {
-            try {
-                await apiRequest('POST', '/api/guests', { name, side, present: false });
-                await loadGuests();
-                hideElement('add-guest-modal');
-                document.getElementById('add-guest-form').reset();
-                alert('✅ Convidado adicionado com sucesso!');
-            } catch (error) {
-                console.error('Erro ao adicionar convidado:', error);
-                alert('Erro ao adicionar convidado. Tente novamente.');
-            }
-        }
+                            if (data) {
+                                options.body = JSON.stringify(data);
+                            }
 
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animações de entrada
-            setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach((element, index) => {
-                    element.style.animationDelay = `${index * 0.1}s`;
-                });
-            }, 100);
+                            const url = endpoint.startsWith('http') ? endpoint : `${BACKEND_URL}${endpoint}`;
+                            const response = await fetch(url, options);
+                            return response.json();
+                        }
 
-            // Busca de convidados
-            const searchInput = document.getElementById('search-input');
-            searchInput.addEventListener('input', searchGuests);
+                        // Funções utilitárias
+                        function showElement(id) {
+                            const element = document.getElementById(id);
+                            element.classList.remove('hidden');
+                            element.classList.add('fade-in');
+                        }
 
-            // Modal de confirmação
-            document.getElementById('confirm-yes').addEventListener('click', () => confirmPresence(true));
-            document.getElementById('confirm-no').addEventListener('click', () => confirmPresence(false));
-            document.getElementById('close-modal').addEventListener('click', () => hideElement('confirm-modal'));
+                        function hideElement(id) {
+                            document.getElementById(id).classList.add('hidden');
+                        }
 
-            // Modal de login
-            document.getElementById('admin-btn').addEventListener('click', () => showElement('login-modal'));
-            document.getElementById('close-login').addEventListener('click', () => hideElement('login-modal'));
-            
-            document.getElementById('login-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                login(username, password);
-            });
+                        function showPage(pageId) {
+                            document.getElementById('main-page').classList.add('hidden');
+                            document.getElementById('admin-page').classList.add('hidden');
+                            const targetPage = document.getElementById(pageId);
+                            targetPage.classList.remove('hidden');
+                            targetPage.classList.add('fade-in');
+                        }
 
-            // Logout
-            document.getElementById('logout-btn').addEventListener('click', function() {
-                isLoggedIn = false;
-                showPage('main-page');
-                document.getElementById('login-form').reset();
-            });
+                        function updateStats() {
+                            const total = currentGuests.length;
+                            const confirmed = currentGuests.filter(g => g.present).length;
+                            const groom = currentGuests.filter(g => g.side === 'noivo').length;
+                            const bride = currentGuests.filter(g => g.side === 'noiva').length;
 
-            // Filtros
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    applyFilter(this.dataset.filter);
-                });
-            });
+                            document.getElementById('total-guests').textContent = total;
+                            document.getElementById('confirmed-guests').textContent = confirmed;
+                            document.getElementById('groom-guests').textContent = groom;
+                            document.getElementById('bride-guests').textContent = bride;
+                        }
 
-            // Modal adicionar convidado
-            document.getElementById('add-guest-btn').addEventListener('click', () => showElement('add-guest-modal'));
-            document.getElementById('close-add-guest').addEventListener('click', () => hideElement('add-guest-modal'));
-            
-            document.getElementById('add-guest-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('guest-name-input').value;
-                const side = document.getElementById('guest-side-select').value;
-                addGuest(name, side);
-            });
+                        function applyFilter(filter) {
+                            currentFilter = filter;
 
-            // Fechar modais clicando no overlay
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.classList.add('hidden');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                            switch (filter) {
+                                case 'noivo':
+                                    filteredGuests = currentGuests.filter(g => g.side === 'noivo');
+                                    break;
+                                case 'noiva':
+                                    filteredGuests = currentGuests.filter(g => g.side === 'noiva');
+                                    break;
+                                case 'confirmed':
+                                    filteredGuests = currentGuests.filter(g => g.present);
+                                    break;
+                                default:
+                                    filteredGuests = [...currentGuests];
+                            }
+
+                            renderGuestsTable();
+
+                            // Update filter button styles
+                            document.querySelectorAll('.filter-btn').forEach(btn => {
+                                btn.classList.remove('active');
+                                if (btn.dataset.filter === filter) {
+                                    btn.classList.add('active');
+                                }
+                            });
+                        }
+
+                        function renderGuestsTable() {
+                            const tbody = document.getElementById('guests-table');
+                            tbody.innerHTML = '';
+
+                            filteredGuests.forEach((guest, index) => {
+                                const row = document.createElement('tr');
+                                row.style.animationDelay = `${index * 0.1}s`;
+                                row.classList.add('fade-in');
+                                row.innerHTML = `
+                                    <td>
+                                        <div class="flex items-center">
+                                            <div class="avatar">
+                                                ${guest.name[0]}
+                                            </div>
+                                            <span class="font-semibold">${guest.name}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-${guest.side}">
+                                            <i class="fas fa-${guest.side === 'noivo' ? 'male' : 'female'}"></i>
+                                            ${guest.side === 'noivo' ? 'Noivo' : 'Noiva'}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
+                                            <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
+                                            ${guest.present ? 'Confirmado' : 'Pendente'}
+                                        </span>
+                                    </td>
+                                    <td class="text-muted">
+                                        ${guest.createdAt ? new Date(guest.createdAt).toLocaleDateString('pt-BR') : '-'}
+                                    </td>
+                                    <td>
+                                        <div class="flex gap-2">
+                                            <button 
+                                                class="btn btn-ghost btn-sm" 
+                                                onclick="togglePresence(${guest.id}, ${!guest.present})"
+                                                data-testid="button-toggle-${guest.id}"
+                                                title="${guest.present ? 'Cancelar presença' : 'Confirmar presença'}"
+                                            >
+                                                <i class="fas fa-${guest.present ? 'times' : 'check'}-circle"></i>
+                                            </button>
+                                            <button 
+                                                class="btn btn-ghost btn-sm" 
+                                                onclick="deleteGuest(${guest.id}, '${guest.name}')"
+                                                style="color: var(--error);"
+                                                data-testid="button-delete-${guest.id}"
+                                                title="Remover convidado"
+                                            >
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                `;
+                                tbody.appendChild(row);
+                            });
+                        }
+
+                        function renderSearchResults(guests) {
+                            const container = document.getElementById('guests-list');
+                            container.innerHTML = '';
+
+                            if (guests.length === 0) {
+                                container.innerHTML = '<p class="text-muted text-center">Nenhum convidado encontrado com esse nome.</p>';
+                                return;
+                            }
+
+                            guests.forEach((guest, index) => {
+                                const guestCard = document.createElement('div');
+                                guestCard.className = 'guest-card fade-in';
+                                guestCard.style.animationDelay = `${index * 0.1}s`;
+                                guestCard.innerHTML = `
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center gap-4">
+                                            <div class="avatar">
+                                                ${guest.name[0]}
+                                            </div>
+                                            <div>
+                                                <h3 class="font-semibold text-lg">${guest.name}</h3>
+                                                <p class="text-muted">${guest.side === 'noivo' ? 'Lado do Noivo' : 'Lado da Noiva'}</p>
+                                                <span class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
+                                                    <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
+                                                    ${guest.present ? 'Presença Confirmada' : 'Aguardando Confirmação'}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button 
+                                            class="btn ${guest.present ? 'btn-secondary' : 'btn-accent'}" 
+                                            onclick="selectGuest(${guest.id}, '${guest.name}', ${guest.present})"
+                                            data-testid="button-select-${guest.id}"
+                                        >
+                                            <i class="fas fa-${guest.present ? 'edit' : 'check'}"></i>
+                                            ${guest.present ? 'Alterar' : 'Confirmar'}
+                                        </button>
+                                    </div>
+                                `;
+                                container.appendChild(guestCard);
+                            });
+                        }
+
+                        // Funções principais
+                        async function searchGuests() {
+                            const query = document.getElementById('search-input').value.trim();
+
+                            if (query.length < 2) {
+                                hideElement('search-results');
+                                return;
+                            }
+
+                            try {
+                                const guests = await apiRequest('GET', `/api/guests?search=${encodeURIComponent(query)}`);
+                                renderSearchResults(guests);
+                                showElement('search-results');
+                            } catch (error) {
+                                console.error('Erro ao buscar convidados:', error);
+                            }
+                        }
+
+                        function selectGuest(id, name, currentPresent) {
+                            selectedGuest = { id, name, present: currentPresent };
+                            document.getElementById('guest-name').textContent = name;
+                            showElement('confirm-modal');
+                        }
+
+                        async function confirmPresence(present) {
+                            if (!selectedGuest) return;
+
+                            try {
+                                await apiRequest('POST', `/api/guests/${selectedGuest.id}/presence`, { present });
+                                hideElement('confirm-modal');
+
+                                // Refresh search results
+                                const query = document.getElementById('search-input').value.trim();
+                                if (query.length >= 2) {
+                                    searchGuests();
+                                }
+
+                                alert(present ? '🎉 Presença confirmada com sucesso!' : 'Presença cancelada.');
+                            } catch (error) {
+                                console.error('Erro ao confirmar presença:', error);
+                                alert('Erro ao confirmar presença. Tente novamente.');
+                            }
+                        }
+
+                        async function login(username, password) {
+                            try {
+                                const result = await apiRequest('POST', '/api/login', { username, password });
+
+                                if (result.success) {
+                                    isLoggedIn = true;
+                                    hideElement('login-modal');
+                                    showPage('admin-page');
+                                    await loadGuests();
+                                } else {
+                                    alert('Credenciais inválidas');
+                                }
+                            } catch (error) {
+                                console.error('Erro no login:', error);
+                                alert('Erro no login. Tente novamente.');
+                            }
+                        }
+
+                        async function loadGuests() {
+                            try {
+                                currentGuests = await apiRequest('GET', '/api/guests');
+                                currentGuests.sort((a, b) => a.name.localeCompare(b.name));
+                                updateStats();
+                                applyFilter(currentFilter);
+                            } catch (error) {
+                                console.error('Erro ao carregar convidados:', error);
+                            }
+                        }
+
+                        async function togglePresence(id, present) {
+                            try {
+                                await apiRequest('POST', `/api/guests/${id}/presence`, { present });
+                                await loadGuests();
+                            } catch (error) {
+                                console.error('Erro ao alterar presença:', error);
+                                alert('Erro ao alterar presença. Tente novamente.');
+                            }
+                        }
+
+                        async function deleteGuest(id, name) {
+                            if (!confirm(`Tem certeza que deseja remover ${name} da lista de convidados?`)) {
+                                return;
+                            }
+
+                            try {
+                                await apiRequest('DELETE', `/api/guests/${id}`);
+                                await loadGuests();
+                            } catch (error) {
+                                console.error('Erro ao remover convidado:', error);
+                                alert('Erro ao remover convidado. Tente novamente.');
+                            }
+                        }
+
+                        async function addGuest(name, side) {
+                            try {
+                                await apiRequest('POST', '/api/guests', { name, side, present: false });
+                                await loadGuests();
+                                hideElement('add-guest-modal');
+                                document.getElementById('add-guest-form').reset();
+                                alert('✅ Convidado adicionado com sucesso!');
+                            } catch (error) {
+                                console.error('Erro ao adicionar convidado:', error);
+                                alert('Erro ao adicionar convidado. Tente novamente.');
+                            }
+                        }
+
+                        // Event listeners
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Animações de entrada
+                            setTimeout(() => {
+                                document.querySelectorAll('.fade-in').forEach((element, index) => {
+                                    element.style.animationDelay = `${index * 0.1}s`;
+                                });
+                            }, 100);
+
+                            // Busca de convidados
+                            const searchInput = document.getElementById('search-input');
+                            searchInput.addEventListener('input', searchGuests);
+
+                            // Modal de confirmação
+                            document.getElementById('confirm-yes').addEventListener('click', () => confirmPresence(true));
+                            document.getElementById('confirm-no').addEventListener('click', () => confirmPresence(false));
+                            document.getElementById('close-modal').addEventListener('click', () => hideElement('confirm-modal'));
+
+                            // Modal de login
+                            document.getElementById('admin-btn').addEventListener('click', () => showElement('login-modal'));
+                            document.getElementById('close-login').addEventListener('click', () => hideElement('login-modal'));
+
+                            document.getElementById('login-form').addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                const username = document.getElementById('username').value;
+                                const password = document.getElementById('password').value;
+                                login(username, password);
+                            });
+
+                            // Logout
+                            document.getElementById('logout-btn').addEventListener('click', function() {
+                                isLoggedIn = false;
+                                showPage('main-page');
+                                document.getElementById('login-form').reset();
+                            });
+
+                            // Filtros
+                            document.querySelectorAll('.filter-btn').forEach(btn => {
+                                btn.addEventListener('click', function() {
+                                    applyFilter(this.dataset.filter);
+                                });
+                            });
+
+                            // Modal adicionar convidado
+                            document.getElementById('add-guest-btn').addEventListener('click', () => showElement('add-guest-modal'));
+                            document.getElementById('close-add-guest').addEventListener('click', () => hideElement('add-guest-modal'));
+
+                            document.getElementById('add-guest-form').addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                const name = document.getElementById('guest-name-input').value;
+                                const side = document.getElementById('guest-side-select').value;
+                                addGuest(name, side);
+                            });
+
+                            // Fechar modais clicando no overlay
+                            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                                modal.addEventListener('click', function(e) {
+                                    if (e.target === this) {
+                                        this.classList.add('hidden');
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                </body>
+                </html>
