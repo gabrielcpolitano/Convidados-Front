@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convidados</title>
-    
+
     <!-- Meta tags para compartilhamento no WhatsApp -->
     <meta property="og:title" content="Gabriel & Leliane">
-    <meta property="og:description" content="Confirme sua presença no casamento">
+    <meta property="og:derielscription" content="Confirme sua presença no casamento">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="https://images.unsplash.com/photo-1520854221256-17451cc331bf?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
@@ -15,12 +15,12 @@
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Casamento Gabriel & Leliane">
-    
+
     <!-- Meta tags adicionais -->
     <meta name="description" content="Lista de presença para o casamento de Gabriel & Leliane em 01 de Novembro de 2025. Confirme sua presença!">
     <meta name="keywords" content="casamento, Gabriel, Leliane, lista de presença, RSVP">
     <meta name="author" content="Gabriel & Leliane">
-    
+
     <!-- Meta tags do Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gabriel & Leliane - Lista de Presença">
@@ -38,7 +38,7 @@
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#8B4B8C',
+                            DEFAULT: '#D44865',
                             light: '#B877B9',
                             dark: '#6B3A6C',
                         },
@@ -46,6 +46,17 @@
                         accent: {
                             DEFAULT: '#D4AF37',
                             light: '#E6C556',
+                        },
+                        gray: {
+                            100: '#f3f4f6', // cinza claro para bordas
+                            200: '#e5e7eb', // cinza para bordas de modais
+                            300: '#d1d5db', // cinza para botões secundários
+                            400: '#9ca3af', // cinza para ícones
+                            500: '#6b7280', // cinza para texto secundário
+                            600: '#4b5563', // cinza para texto principal
+                            700: '#374151', // cinza escuro para títulos
+                            800: '#1f2937', // cinza muito escuro para títulos importantes
+                            900: '#111827', // quase preto
                         }
                     },
                     fontFamily: {
@@ -72,7 +83,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #F7E7F8 0%, #E6D7E8 50%, #D4C5E8 100%);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 50%, #d1d5db 100%); /* Fundo cinza gradiente */
         }
         .card-hover:hover {
             transform: translateY(-8px);
@@ -92,22 +103,22 @@
         }
     </style>
 </head>
-<body class="font-sans gradient-bg min-h-screen text-slate-800 leading-relaxed">
+<body class="font-sans gradient-bg min-h-screen text-gray-700 leading-relaxed">
     <!-- Página Principal -->
     <div id="main-page">
-        <div class="max-w-6xl mx-auto p-4 md:p-8">
+        <div class="max-w-6xl mx-auto px-6 py-4 md:p-8">
             <!-- Hero Section -->
-            <div class="text-center py-16 md:py-24 bg-gradient-to-br from-purple-50/80 via-pink-50/60 to-yellow-50/40 rounded-3xl mb-16 relative overflow-hidden backdrop-blur-sm shadow-2xl border border-purple-100/50 animate-fade-in">
+            <div class="text-center py-16 md:py-24 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 rounded-3xl mb-16 relative overflow-hidden backdrop-blur-sm shadow-2xl border border-gray-200 animate-fade-in">
                 <!-- Background Animation -->
-                <div class="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-transparent to-yellow-400/10 animate-spin-slow"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 animate-spin-slow"></div>
 
                 <div class="relative z-10">
-                    <h2 class="font-script text-4xl md:text-5xl font-semibold text-primary mb-2">Casamento</h2>
-                    <h1 class="font-serif-display text-5xl md:text-8xl font-bold bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent mb-4 leading-tight">
+                    <h2 class="font-script text-4xl md:text-5xl font-semibold text-gray-700 mb-2">Casamento</h2>
+                    <h1 class="font-serif-display text-5xl md:text-8xl font-bold bg-gradient-to-l from-primary via-primary-light to-accent bg-clip-text text-transparent mb-4 leading-tight">
                         Gabriel & Leliane
                     </h1>
                     <div class="relative inline-block">
-                        <p class="font-display text-xl md:text-3xl font-semibold text-slate-700 mb-12">01 de Novembro de 2025</p>
+                        <p class="font-display text-xl md:text-3xl font-semibold text-gray-700 mb-12">01 de Novembro de 2025</p>
                         <span class="absolute -left-8 md:-left-12 top-1/2 transform -translate-y-1/2 text-2xl">✨</span>
                         <span class="absolute -right-8 md:-right-12 top-1/2 transform -translate-y-1/2 text-2xl">✨</span>
                     </div>
@@ -116,19 +127,38 @@
                     <div class="max-w-2xl mx-auto relative">
                         <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-8 opacity-30"></div>
 
-                        <div class="mb-6">
-                            <label class="block text-lg font-medium text-slate-700 mb-4" for="search-input">
+                        <div class="mb-6 ml-4 mr-4">
+                            <label class="block m font-medium text-gray-700 mb-4" for="search-input">
                                 Buscar seu nome na lista de convidados
                             </label>
-                            <div class="relative">
-                                <i class="fas fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 text-lg z-10"></i>
-                                <input 
-                                    type="text" 
-                                    id="search-input" 
-                                    class="w-full pl-14 pr-6 py-4 border-2 border-purple-100 rounded-xl text-lg bg-white/95 shadow-lg focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300 focus:-translate-y-1"
-                                    placeholder="Digite seu nome completo..." 
-                                    data-testid="input-search"
+                            <div class="relative flex gap-3">
+                                <div class="relative flex-1 max-w-md">
+                                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-base z-10"></i>
+                                    <input 
+                                        type="text" 
+                                        id="search-input" 
+                                        class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg text-base bg-white/95 shadow-lg focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300 focus:-translate-y-1"
+                                        placeholder="Digite seu nome completo..." 
+                                        data-testid="input-search"
+                                    >
+                                </div>
+                                <button 
+                                    id="search-btn"
+                                    class="px-6 py-3 bg-gradient-to-r from-primary to-primary-light text-white rounded-lg font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden btn-shimmer whitespace-nowrap"
+                                    data-testid="button-search"
                                 >
+                                    <i class="fas fa-search"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Loading Indicator -->
+                        <div id="loading-indicator" class="hidden text-center">
+                            <div class="inline-flex items-center gap-3 bg-white/95 px-6 py-4 rounded-xl shadow-lg border border-gray-200">
+                                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                                <span class="text-gray-700 font-medium">Procurando...</span>
+                                <span id="search-timer" class="text-primary font-bold">30</span>s
                             </div>
                         </div>
                     </div>
@@ -137,15 +167,15 @@
 
             <!-- Search Results -->
             <div id="search-results" class="hidden animate-fade-in">
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 mb-8 shadow-xl border border-purple-100/50 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-semibold mb-6 text-slate-700">Resultados da busca:</h3>
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 mb-8 shadow-xl border border-gray-200 card-hover transition-all duration-300">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-700">Resultados da busca:</h3>
                     <div id="guests-list"></div>
                 </div>
             </div>
 
             <!-- Admin Button -->
             <div class="text-center animate-fade-in">
-                <button id="admin-btn" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-slate-800 transition-all duration-200" data-testid="button-admin">
+                <button id="admin-btn" class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-800 transition-all duration-200" data-testid="button-admin">
                     <i class="fas fa-cog"></i>
                     Acesso Administrativo
                 </button>
@@ -155,26 +185,26 @@
 
     <!-- Modal de Confirmação -->
     <div id="confirm-modal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50 backdrop-blur-sm">
-        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 max-h-[80vh] overflow-y-auto shadow-2xl border border-purple-100 animate-slide-up">
-            <h2 class="font-display text-2xl font-bold mb-4 text-center text-slate-800">Confirmar Presença</h2>
+        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 max-h-[80vh] overflow-y-auto shadow-2xl border border-gray-200 animate-slide-up">
+            <h2 class="font-display text-2xl font-bold mb-4 text-center text-gray-800">Confirmar Presença</h2>
             <div class="text-center mb-4">
                 <i class="fas fa-heart text-3xl text-primary"></i>
             </div>
-            <p class="mb-4 text-center text-slate-700">Olá, <span id="guest-name" class="font-semibold text-primary"></span>!</p>
-            <p class="mb-8 text-center text-slate-500">Você confirma sua presença no casamento de Gabriel & Leliane em 01/11/2025?</p>
+            <p class="mb-4 text-center text-gray-700">Olá, <span id="guest-name" class="font-semibold text-primary"></span>!</p>
+            <p class="mb-8 text-center text-gray-500">Você confirma sua presença no casamento de Gabriel & Leliane em 01/11/2025?</p>
 
             <div class="flex gap-4 mb-4">
                 <button id="confirm-yes" class="flex-1 bg-gradient-to-r from-accent to-accent-light text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden btn-shimmer" data-testid="button-confirm-yes">
                     <i class="fas fa-check"></i>
                     Sim, estarei presente!
                 </button>
-                <button id="confirm-no" class="flex-1 bg-gradient-to-r from-secondary to-purple-100 text-primary px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300" data-testid="button-confirm-no">
+                <button id="confirm-no" class="flex-1  from-secondary to-primary-light text-primary px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300" data-testid="button-confirm-no">
                     <i class="fas fa-times"></i>
                     Não poderei ir
                 </button>
             </div>
 
-            <button id="close-modal" class="w-full bg-transparent text-slate-600 px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 hover:text-slate-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-modal">
+            <button id="close-modal" class="w-full bg-transparent text-gray-600 px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-50 hover:text-gray-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-modal">
                 <i class="fas fa-times"></i>
                 Cancelar
             </button>
@@ -183,27 +213,27 @@
 
     <!-- Modal de Login Admin -->
     <div id="login-modal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50 backdrop-blur-sm">
-        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 shadow-2xl border border-purple-100 animate-slide-up">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 shadow-2xl border border-gray-200 animate-slide-up">
             <div class="text-center mb-4">
                 <i class="fas fa-shield-alt text-3xl text-primary"></i>
             </div>
-            <h2 class="font-display text-2xl font-bold mb-6 text-center text-slate-800">Login Administrativo</h2>
+            <h2 class="font-display text-2xl font-bold mb-6 text-center text-gray-800">Login Administrativo</h2>
 
             <form id="login-form" class="space-y-6">
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2" for="username">
+                    <label class="block text-sm font-medium text-gray-700 mb-2" for="username">
                         <i class="fas fa-user mr-2"></i>
                         Usuário:
                     </label>
-                    <input type="text" id="username" class="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" data-testid="input-username" placeholder="Digite seu usuário">
+                    <input type="text" id="username" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" data-testid="input-username" placeholder="Digite seu usuário">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2" for="password">
+                    <label class="block text-sm font-medium text-gray-700 mb-2" for="password">
                         <i class="fas fa-lock mr-2"></i>
                         Senha:
                     </label>
-                    <input type="password" id="password" class="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" data-testid="input-password" placeholder="Digite sua senha">
+                    <input type="password" id="password" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" data-testid="input-password" placeholder="Digite sua senha">
                 </div>
 
                 <div class="flex gap-4">
@@ -211,7 +241,7 @@
                         <i class="fas fa-sign-in-alt"></i>
                         Entrar
                     </button>
-                    <button type="button" id="close-login" class="flex-1 bg-transparent text-slate-600 px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 hover:text-slate-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-login">
+                    <button type="button" id="close-login" class="flex-1 bg-transparent text-gray-600 px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-50 hover:text-gray-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-login">
                         <i class="fas fa-times"></i>
                         Cancelar
                     </button>
@@ -222,7 +252,7 @@
 
     <!-- Painel Administrativo -->
     <div id="admin-page" class="hidden">
-        <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="max-w-7xl mx-auto px-6 py-4 md:p-8">
             <!-- Admin Header -->
             <div class="bg-gradient-to-r from-primary to-primary-dark text-white p-8 rounded-2xl mb-12 shadow-xl animate-fade-in">
                 <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
@@ -239,69 +269,69 @@
 
             <!-- Estatísticas -->
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-12 animate-fade-in">
-                <div class="bg-white p-6 rounded-2xl shadow-lg border border-purple-100/50 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"></div>
                     <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-users"></i>
                     </div>
                     <div>
-                        <p class="text-2xl font-bold text-slate-800" id="total-guests" data-testid="stat-total">0</p>
-                        <p class="text-slate-500 text-sm">Total de Convidados</p>
+                        <p class="text-2xl font-bold text-gray-800" id="total-guests" data-testid="stat-total">0</p>
+                        <p class="text-gray-500 text-sm">Total de Convidados</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-lg border border-purple-100/50 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-emerald-500"></div>
                     <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div>
-                        <p class="text-2xl font-bold text-slate-800" id="confirmed-guests" data-testid="stat-confirmed">0</p>
-                        <p class="text-slate-500 text-sm">Presenças Confirmadas</p>
+                        <p class="text-2xl font-bold text-gray-800" id="confirmed-guests" data-testid="stat-confirmed">0</p>
+                        <p class="text-gray-500 text-sm">Presenças Confirmadas</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-lg border border-purple-100/50 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-male"></i>
                     </div>
                     <div>
-                        <p class="text-2xl font-bold text-slate-800" id="groom-guests" data-testid="stat-groom">0</p>
-                        <p class="text-slate-500 text-sm">Lado do Noivo</p>
+                        <p class="text-2xl font-bold text-gray-800" id="groom-guests" data-testid="stat-groom">0</p>
+                        <p class="text-gray-500 text-sm">Lado do Noivo</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-lg border border-purple-100/50 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex items-center gap-4 card-hover transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-dark"></div>
                     <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg">
                         <i class="fas fa-female"></i>
                     </div>
                     <div>
-                        <p class="text-2xl font-bold text-slate-800" id="bride-guests" data-testid="stat-bride">0</p>
-                        <p class="text-slate-500 text-sm">Lado da Noiva</p>
+                        <p class="text-2xl font-bold text-gray-800" id="bride-guests" data-testid="stat-bride">0</p>
+                        <p class="text-gray-500 text-sm">Lado da Noiva</p>
                     </div>
                 </div>
             </div>
 
             <!-- Filtros e Tabela -->
-            <div class="bg-white rounded-2xl shadow-xl border border-purple-100/50 p-8 animate-fade-in">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 animate-fade-in">
                 <!-- Filtros e Botão Adicionar -->
                 <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-8">
                     <div class="flex flex-wrap gap-2">
-                        <button class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 filter-btn active bg-primary text-white" data-filter="all" data-testid="filter-all">
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 filter-btn active bg-primary text-white" data-filter="all" data-testid="filter-all">
                             <i class="fas fa-list mr-2"></i>
                             Todos
                         </button>
-                        <button class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 filter-btn" data-filter="noivo" data-testid="filter-groom">
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 filter-btn" data-filter="noivo" data-testid="filter-groom">
                             <i class="fas fa-male mr-2"></i>
                             Noivo
                         </button>
-                        <button class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 filter-btn" data-filter="noiva" data-testid="filter-bride">
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 filter-btn" data-filter="noiva" data-testid="filter-bride">
                             <i class="fas fa-female mr-2"></i>
                             Noiva
                         </button>
-                        <button class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 filter-btn" data-filter="confirmed" data-testid="filter-confirmed">
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 filter-btn" data-filter="confirmed" data-testid="filter-confirmed">
                             <i class="fas fa-check-circle mr-2"></i>
                             Confirmados
                         </button>
@@ -313,28 +343,28 @@
                 </div>
 
                 <!-- Tabela de Convidados -->
-                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <div class="overflow-x-auto rounded-xl border border-gray-200">
                     <table class="w-full bg-white">
-                        <thead class="bg-gradient-to-r from-slate-50 to-slate-100">
+                        <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
                             <tr>
-                                <th class="text-left p-4 font-bold text-slate-700 text-sm uppercase tracking-wider">
+                                <th class="text-left p-4 font-bold text-gray-700 text-sm uppercase tracking-wider">
                                     <i class="fas fa-user mr-2"></i>Nome
                                 </th>
-                                <th class="text-left p-4 font-bold text-slate-700 text-sm uppercase tracking-wider">
+                                <th class="text-left p-4 font-bold text-gray-700 text-sm uppercase tracking-wider">
                                     <i class="fas fa-heart mr-2"></i>Lado
                                 </th>
-                                <th class="text-left p-4 font-bold text-slate-700 text-sm uppercase tracking-wider">
+                                <th class="text-left p-4 font-bold text-gray-700 text-sm uppercase tracking-wider">
                                     <i class="fas fa-check-circle mr-2"></i>Status
                                 </th>
-                                <th class="text-left p-4 font-bold text-slate-700 text-sm uppercase tracking-wider">
+                                <th class="text-left p-4 font-bold text-gray-700 text-sm uppercase tracking-wider">
                                     <i class="fas fa-calendar mr-2"></i>Data
                                 </th>
-                                <th class="text-left p-4 font-bold text-slate-700 text-sm uppercase tracking-wider">
+                                <th class="text-left p-4 font-bold text-gray-700 text-sm uppercase tracking-wider">
                                     <i class="fas fa-cog mr-2"></i>Ações
                                 </th>
                             </tr>
                         </thead>
-                        <tbody id="guests-table" class="divide-y divide-slate-200">
+                        <tbody id="guests-table" class="divide-y divide-gray-200">
                         </tbody>
                     </table>
                 </div>
@@ -344,27 +374,27 @@
 
     <!-- Modal Adicionar Convidado -->
     <div id="add-guest-modal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50 backdrop-blur-sm">
-        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 shadow-2xl border border-purple-100 animate-slide-up">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-11/12 shadow-2xl border border-gray-200 animate-slide-up">
             <div class="text-center mb-4">
                 <i class="fas fa-user-plus text-3xl text-primary"></i>
             </div>
-            <h2 class="font-display text-2xl font-bold mb-6 text-center text-slate-800">Adicionar Convidado</h2>
+            <h2 class="font-display text-2xl font-bold mb-6 text-center text-gray-800">Adicionar Convidado</h2>
 
             <form id="add-guest-form" class="space-y-6">
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2" for="guest-name-input">
+                    <label class="block text-sm font-medium text-gray-700 mb-2" for="guest-name-input">
                         <i class="fas fa-user mr-2"></i>
                         Nome Completo:
                     </label>
-                    <input type="text" id="guest-name-input" class="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" required data-testid="input-guest-name" placeholder="Digite o nome completo">
+                    <input type="text" id="guest-name-input" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" required data-testid="input-guest-name" placeholder="Digite o nome completo">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2" for="guest-side-select">
+                    <label class="block text-sm font-medium text-gray-700 mb-2" for="guest-side-select">
                         <i class="fas fa-heart mr-2"></i>
                         Lado da Família:
                     </label>
-                    <select id="guest-side-select" class="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" required data-testid="select-guest-side">
+                    <select id="guest-side-select" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 focus:outline-none transition-all duration-300" required data-testid="select-guest-side">
                         <option value="">Selecione o lado...</option>
                         <option value="noivo">Lado do Noivo</option>
                         <option value="noiva">Lado da Noiva</option>
@@ -376,7 +406,7 @@
                         <i class="fas fa-save"></i>
                         Salvar Convidado
                     </button>
-                    <button type="button" id="close-add-guest" class="flex-1 bg-transparent text-slate-600 px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 hover:text-slate-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-add-guest">
+                    <button type="button" id="close-add-guest" class="flex-1 bg-transparent text-gray-600 px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-50 hover:text-gray-800 transition-all duration-200 flex items-center justify-center gap-2" data-testid="button-close-add-guest">
                         <i class="fas fa-times"></i>
                         Cancelar
                     </button>
@@ -467,10 +497,10 @@
             // Update filter button styles
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-primary', 'text-white');
-                btn.classList.add('text-slate-600', 'hover:bg-slate-50');
+                btn.classList.add('text-gray-600', 'hover:bg-gray-50');
                 if (btn.dataset.filter === filter) {
                     btn.classList.add('active', 'bg-primary', 'text-white');
-                    btn.classList.remove('text-slate-600', 'hover:bg-slate-50');
+                    btn.classList.remove('text-gray-600', 'hover:bg-gray-50');
                 }
             });
         }
@@ -481,7 +511,7 @@
 
             filteredGuests.forEach((guest, index) => {
                 const row = document.createElement('tr');
-                row.className = 'hover:bg-slate-50 animate-fade-in';
+                row.className = 'hover:bg-gray-50 animate-fade-in';
                 row.style.animationDelay = `${index * 0.1}s`;
                 row.innerHTML = `
                     <td class="p-4">
@@ -489,7 +519,7 @@
                             <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center text-white font-bold shadow-md">
                                 ${guest.name[0]}
                             </div>
-                            <span class="font-semibold text-slate-800">${guest.name}</span>
+                            <span class="font-semibold text-gray-800">${guest.name}</span>
                         </div>
                     </td>
                     <td class="p-4">
@@ -504,13 +534,13 @@
                             ${guest.present ? 'Confirmado' : 'Pendente'}
                         </span>
                     </td>
-                    <td class="p-4 text-slate-500 text-sm">
+                    <td class="p-4 text-gray-500 text-sm">
                         ${guest.createdAt ? new Date(guest.createdAt).toLocaleDateString('pt-BR') : '-'}
                     </td>
                     <td class="p-4">
                         <div class="flex gap-2">
                             <button 
-                                class="p-2 text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-all duration-200" 
+                                class="p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-all duration-200" 
                                 onclick="togglePresence(${guest.id}, ${!guest.present})"
                                 data-testid="button-toggle-${guest.id}"
                                 title="${guest.present ? 'Cancelar presença' : 'Confirmar presença'}"
@@ -537,13 +567,13 @@
             container.innerHTML = '';
 
             if (guests.length === 0) {
-                container.innerHTML = '<p class="text-slate-500 text-center">Nenhum convidado encontrado com esse nome.</p>';
+                container.innerHTML = '<p class="text-gray-500 text-center">Nenhum convidado encontrado com esse nome.</p>';
                 return;
             }
 
             guests.forEach((guest, index) => {
                 const guestCard = document.createElement('div');
-                guestCard.className = 'bg-white/95 backdrop-blur-sm rounded-2xl p-6 mb-4 shadow-lg border border-purple-100/50 card-hover transition-all duration-300 animate-fade-in';
+                guestCard.className = 'bg-white/95 backdrop-blur-sm rounded-2xl p-6 mb-4 shadow-lg border border-gray-200 card-hover transition-all duration-300 animate-fade-in';
                 guestCard.style.animationDelay = `${index * 0.1}s`;
                 guestCard.innerHTML = `
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
@@ -552,22 +582,22 @@
                                 ${guest.name[0]}
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg text-slate-800">${guest.name}</h3>
-                                <p class="text-slate-500">${guest.side === 'noivo' ? 'Lado do Noivo' : 'Lado da Noiva'}</p>
+                                <h3 class="font-semibold text-lg text-gray-800">${guest.name}</h3>
+                                <p class="text-gray-500">${guest.side === 'noivo' ? 'Lado do Noivo' : 'Lado da Noiva'}</p>
                                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mt-2 ${guest.present ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">
                                     <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
                                     ${guest.present ? 'Presença Confirmada' : 'Aguardando Confirmação'}
                                 </span>
                             </div>
                         </div>
-                        <button 
-                            class="px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${guest.present ? 'bg-gradient-to-r from-secondary to-purple-100 text-primary border-2 border-primary hover:bg-primary hover:text-white' : 'bg-gradient-to-r from-accent to-accent-light text-white'}" 
+                        ${!guest.present ? `<button 
+                            class="px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-r from-accent to-accent-light text-white" 
                             onclick="selectGuest(${guest.id}, '${guest.name}', ${guest.present})"
                             data-testid="button-select-${guest.id}"
                         >
-                            <i class="fas fa-${guest.present ? 'edit' : 'check'}"></i>
-                            ${guest.present ? 'Alterar' : 'Confirmar'}
-                        </button>
+                            <i class="fas fa-check"></i>
+                            Confirmar
+                        </button>` : ''}
                     </div>
                 `;
                 container.appendChild(guestCard);
@@ -575,21 +605,66 @@
         }
 
         // Funções principais
-        async function searchGuests() {
+        let searchTimer;
+        let searchTimeoutId;
+
+        async function performSearch() {
             const query = document.getElementById('search-input').value.trim();
 
             if (query.length < 2) {
                 hideElement('search-results');
+                alert('Por favor, digite pelo menos 2 caracteres para buscar.');
                 return;
             }
 
+            // Mostrar loading
+            showElement('loading-indicator');
+            hideElement('search-results');
+
+            // Iniciar timer de 30 segundos
+            let timeLeft = 30;
+            document.getElementById('search-timer').textContent = timeLeft;
+
+            searchTimer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('search-timer').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(searchTimer);
+                }
+            }, 1000);
+
+            // Timeout de 30 segundos
+            searchTimeoutId = setTimeout(() => {
+                hideElement('loading-indicator');
+                clearInterval(searchTimer);
+                alert('Busca demorou muito tempo. Tente novamente.');
+            }, 30000);
+
             try {
                 const guests = await apiRequest('GET', `/api/guests?search=${encodeURIComponent(query)}`);
+
+                // Limpar timer e loading
+                clearInterval(searchTimer);
+                clearTimeout(searchTimeoutId);
+                hideElement('loading-indicator');
+
                 renderSearchResults(guests);
                 showElement('search-results');
             } catch (error) {
                 console.error('Erro ao buscar convidados:', error);
+
+                // Limpar timer e loading
+                clearInterval(searchTimer);
+                clearTimeout(searchTimeoutId);
+                hideElement('loading-indicator');
+
+                alert('Erro ao buscar convidados. Tente novamente.');
             }
+        }
+
+        async function searchGuests() {
+            // Manter função original para compatibilidade, mas não usar mais
+            return performSearch();
         }
 
         function selectGuest(id, name, currentPresent) {
@@ -688,7 +763,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Busca de convidados
             const searchInput = document.getElementById('search-input');
-            searchInput.addEventListener('input', searchGuests);
+            const searchBtn = document.getElementById('search-btn');
+
+            // Buscar apenas ao pressionar Enter ou clicar no botão
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+
+            searchBtn.addEventListener('click', performSearch);
 
             // Modal de confirmação
             document.getElementById('confirm-yes').addEventListener('click', () => confirmPresence(true));
@@ -732,12 +817,20 @@
             });
 
             // Fechar modais clicando no overlay
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.classList.add('hidden');
-                    }
-                });
+            document.getElementById('confirm-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideElement('confirm-modal');
+                }
+            });
+            document.getElementById('login-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideElement('login-modal');
+                }
+            });
+            document.getElementById('add-guest-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideElement('add-guest-modal');
+                }
             });
         });
     </script>
