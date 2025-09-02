@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento Gabriel & Léliane - RSVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4B8C;
+            --primary-foreground: #FFFFFF;
+            --secondary: #F7E7F8;
+            --secondary-foreground: #8B4B8C;
+            --accent: #D4AF37;
+            --accent-foreground: #FFFFFF;
+            --muted: #F5F5F5;
+            --muted-foreground: #666666;
+            --destructive: #EF4444;
+            --border: #E5E5E5;
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --card: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #F7E7F8 0%, #E6D7E8 100%);
+            min-height: 100vh;
+            color: var(--foreground);
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--secondary-foreground);
+        }
+
+        .btn-destructive {
+            background: var(--destructive);
+            color: white;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--foreground);
+        }
+
+        .btn-ghost:hover {
+            background: var(--muted);
+        }
+
+        .btn-sm {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--background);
+            color: var(--foreground);
+        }
+
+        .input:focus {
+            outline: 2px solid var(--primary);
+            border-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--foreground);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background: var(--muted);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table tr:hover {
+            background: var(--muted);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            gap: 4px;
+        }
+
+        .badge-confirmed {
+            background: var(--accent);
+            color: var(--accent-foreground);
+        }
+
+        .badge-pending {
+            background: var(--muted);
+            color: var(--muted-foreground);
+        }
+
+        .badge-noivo {
+            background: var(--muted);
+            color: var(--muted-foreground);
+        }
+
+        .badge-noiva {
+            background: var(--secondary);
+            color: var(--secondary-foreground);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-foreground);
+            font-size: 20px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .text-muted {
+            color: var(--muted-foreground);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-foreground);
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+            }
+            
+            .table {
+                font-size: 14px;
+            }
+            
+            .table th,
+            .table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Página Principal -->
+    <div id="main-page">
+        <div class="container">
+            <div class="card text-center">
+                <h1 class="font-display text-3xl font-bold mb-4">Gabriel & Léliane</h1>
+                <p class="text-xl mb-8">01 de Novembro de 2025</p>
+                
+                <div class="form-group">
+                    <label class="label" for="search-input">Buscar seu nome na lista:</label>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="input" 
+                        placeholder="Digite seu nome..." 
+                        data-testid="input-search"
+                    >
+                </div>
+                
+                <div id="search-results" class="hidden">
+                    <h3 class="font-semibold mb-4">Resultados da busca:</h3>
+                    <div id="guests-list"></div>
+                </div>
+                
+                <button id="admin-btn" class="btn btn-ghost btn-sm" data-testid="button-admin">
+                    <i class="fas fa-cog"></i>
+                    Administrador
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="font-display text-2xl font-bold mb-4">Confirmar Presença</h2>
+            <p class="mb-4">Olá, <span id="guest-name"></span>!</p>
+            <p class="mb-8">Você confirma sua presença no casamento de Gabriel & Léliane em 01/11/2025?</p>
+            
+            <div class="flex gap-4">
+                <button id="confirm-yes" class="btn btn-primary w-full" data-testid="button-confirm-yes">
+                    <i class="fas fa-check"></i>
+                    Sim, estarei presente!
+                </button>
+                <button id="confirm-no" class="btn btn-secondary w-full" data-testid="button-confirm-no">
+                    <i class="fas fa-times"></i>
+                    Não poderei ir
+                </button>
+            </div>
+            
+            <button id="close-modal" class="btn btn-ghost w-full" style="margin-top: 1rem;" data-testid="button-close-modal">
+                Cancelar
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Login Admin -->
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="font-display text-2xl font-bold mb-4">Login Administrativo</h2>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="label" for="username">Usuário:</label>
+                    <input type="text" id="username" class="input" data-testid="input-username">
+                </div>
+                
+                <div class="form-group">
+                    <label class="label" for="password">Senha:</label>
+                    <input type="password" id="password" class="input" data-testid="input-password">
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" class="btn btn-primary w-full" data-testid="button-login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Entrar
+                    </button>
+                    <button type="button" id="close-login" class="btn btn-ghost w-full" data-testid="button-close-login">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel Administrativo -->
+    <div id="admin-page" class="hidden">
+        <div class="container">
+            <div class="card">
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <h1 class="font-display text-2xl font-bold">Painel Administrativo</h1>
+                        <p class="text-muted">Casamento de Gabriel & Léliane – 01/11/2025</p>
+                    </div>
+                    <button id="logout-btn" class="btn btn-ghost" data-testid="button-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sair
+                    </button>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold" id="total-guests" data-testid="stat-total">0</p>
+                            <p class="text-muted">Total de Convidados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold" id="confirmed-guests" data-testid="stat-confirmed">0</p>
+                            <p class="text-muted">Presenças Confirmadas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-male"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold" id="groom-guests" data-testid="stat-groom">0</p>
+                            <p class="text-muted">Lado do Noivo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold" id="bride-guests" data-testid="stat-bride">0</p>
+                            <p class="text-muted">Lado da Noiva</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros e Ações -->
+                <div class="flex justify-between items-center mb-4">
+                    <div class="filter-buttons">
+                        <button class="btn btn-ghost filter-btn active" data-filter="all" data-testid="filter-all">Todos</button>
+                        <button class="btn btn-ghost filter-btn" data-filter="noivo" data-testid="filter-groom">Noivo</button>
+                        <button class="btn btn-ghost filter-btn" data-filter="noiva" data-testid="filter-bride">Noiva</button>
+                        <button class="btn btn-ghost filter-btn" data-filter="confirmed" data-testid="filter-confirmed">Confirmados</button>
+                    </div>
+                    <button id="add-guest-btn" class="btn btn-primary" data-testid="button-add-guest">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Convidado
+                    </button>
+                </div>
+
+                <!-- Tabela de Convidados -->
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Lado</th>
+                                <th>Status</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="guests-table">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Convidado -->
+    <div id="add-guest-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="font-display text-2xl font-bold mb-4">Adicionar Convidado</h2>
+            
+            <form id="add-guest-form">
+                <div class="form-group">
+                    <label class="label" for="guest-name-input">Nome:</label>
+                    <input type="text" id="guest-name-input" class="input" required data-testid="input-guest-name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="label" for="guest-side-select">Lado:</label>
+                    <select id="guest-side-select" class="input" required data-testid="select-guest-side">
+                        <option value="">Selecione...</option>
+                        <option value="noivo">Noivo</option>
+                        <option value="noiva">Noiva</option>
+                    </select>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" class="btn btn-primary w-full" data-testid="button-save-guest">
+                        <i class="fas fa-save"></i>
+                        Salvar
+                    </button>
+                    <button type="button" id="close-add-guest" class="btn btn-ghost w-full" data-testid="button-close-add-guest">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Estado global
+        let currentGuests = [];
+        let filteredGuests = [];
+        let currentFilter = 'all';
+        let isLoggedIn = false;
+        let selectedGuest = null;
+
+        // Funções de API
+        async function apiRequest(method, endpoint, data = null) {
+            const options = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+            
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+            
+            const response = await fetch(endpoint, options);
+            return response.json();
+        }
+
+        // Funções utilitárias
+        function showElement(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function hideElement(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function showPage(pageId) {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('admin-page').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function updateStats() {
+            const total = currentGuests.length;
+            const confirmed = currentGuests.filter(g => g.present).length;
+            const groom = currentGuests.filter(g => g.side === 'noivo').length;
+            const bride = currentGuests.filter(g => g.side === 'noiva').length;
+
+            document.getElementById('total-guests').textContent = total;
+            document.getElementById('confirmed-guests').textContent = confirmed;
+            document.getElementById('groom-guests').textContent = groom;
+            document.getElementById('bride-guests').textContent = bride;
+        }
+
+        function applyFilter(filter) {
+            currentFilter = filter;
+            
+            switch (filter) {
+                case 'noivo':
+                    filteredGuests = currentGuests.filter(g => g.side === 'noivo');
+                    break;
+                case 'noiva':
+                    filteredGuests = currentGuests.filter(g => g.side === 'noiva');
+                    break;
+                case 'confirmed':
+                    filteredGuests = currentGuests.filter(g => g.present);
+                    break;
+                default:
+                    filteredGuests = [...currentGuests];
+            }
+            
+            renderGuestsTable();
+            
+            // Update filter button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === filter) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function renderGuestsTable() {
+            const tbody = document.getElementById('guests-table');
+            tbody.innerHTML = '';
+            
+            filteredGuests.forEach(guest => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="flex items-center">
+                            <div class="avatar">
+                                ${guest.name[0]}
+                            </div>
+                            <span class="font-semibold">${guest.name}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge badge-${guest.side}">
+                            ${guest.side === 'noivo' ? 'Noivo' : 'Noiva'}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
+                            <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
+                            ${guest.present ? 'Confirmado' : 'Pendente'}
+                        </span>
+                    </td>
+                    <td class="text-muted">
+                        ${guest.createdAt ? new Date(guest.createdAt).toLocaleDateString('pt-BR') : '-'}
+                    </td>
+                    <td>
+                        <div class="flex gap-2">
+                            <button 
+                                class="btn btn-ghost btn-sm" 
+                                onclick="togglePresence(${guest.id}, ${!guest.present})"
+                                data-testid="button-toggle-${guest.id}"
+                            >
+                                <i class="fas fa-${guest.present ? 'times' : 'check'}-circle"></i>
+                            </button>
+                            <button 
+                                class="btn btn-ghost btn-sm" 
+                                onclick="deleteGuest(${guest.id}, '${guest.name}')"
+                                style="color: var(--destructive);"
+                                data-testid="button-delete-${guest.id}"
+                            >
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function renderSearchResults(guests) {
+            const container = document.getElementById('guests-list');
+            container.innerHTML = '';
+            
+            if (guests.length === 0) {
+                container.innerHTML = '<p class="text-muted">Nenhum convidado encontrado.</p>';
+                return;
+            }
+            
+            guests.forEach(guest => {
+                const guestCard = document.createElement('div');
+                guestCard.className = 'card';
+                guestCard.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-semibold">${guest.name}</h3>
+                            <p class="text-muted">${guest.side === 'noivo' ? 'Lado do Noivo' : 'Lado da Noiva'}</p>
+                            <p class="badge badge-${guest.present ? 'confirmed' : 'pending'}">
+                                <i class="fas fa-${guest.present ? 'check-circle' : 'clock'}"></i>
+                                ${guest.present ? 'Presença Confirmada' : 'Aguardando Confirmação'}
+                            </p>
+                        </div>
+                        <button 
+                            class="btn btn-primary" 
+                            onclick="selectGuest(${guest.id}, '${guest.name}', ${guest.present})"
+                            data-testid="button-select-${guest.id}"
+                        >
+                            ${guest.present ? 'Alterar' : 'Confirmar'}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(guestCard);
+            });
+        }
+
+        // Funções principais
+        async function searchGuests() {
+            const query = document.getElementById('search-input').value.trim();
+            
+            if (query.length < 2) {
+                hideElement('search-results');
+                return;
+            }
+            
+            try {
+                const guests = await apiRequest('GET', `/api/guests?search=${encodeURIComponent(query)}`);
+                renderSearchResults(guests);
+                showElement('search-results');
+            } catch (error) {
+                console.error('Erro ao buscar convidados:', error);
+            }
+        }
+
+        function selectGuest(id, name, currentPresent) {
+            selectedGuest = { id, name, present: currentPresent };
+            document.getElementById('guest-name').textContent = name;
+            showElement('confirm-modal');
+        }
+
+        async function confirmPresence(present) {
+            if (!selectedGuest) return;
+            
+            try {
+                await apiRequest('POST', `/api/guests/${selectedGuest.id}/presence`, { present });
+                hideElement('confirm-modal');
+                
+                // Refresh search results
+                const query = document.getElementById('search-input').value.trim();
+                if (query.length >= 2) {
+                    searchGuests();
+                }
+                
+                alert(present ? 'Presença confirmada com sucesso!' : 'Presença cancelada.');
+            } catch (error) {
+                console.error('Erro ao confirmar presença:', error);
+                alert('Erro ao confirmar presença. Tente novamente.');
+            }
+        }
+
+        async function login(username, password) {
+            try {
+                const result = await apiRequest('POST', '/api/login', { username, password });
+                
+                if (result.success) {
+                    isLoggedIn = true;
+                    hideElement('login-modal');
+                    showPage('admin-page');
+                    await loadGuests();
+                } else {
+                    alert('Credenciais inválidas');
+                }
+            } catch (error) {
+                console.error('Erro no login:', error);
+                alert('Erro no login. Tente novamente.');
+            }
+        }
+
+        async function loadGuests() {
+            try {
+                currentGuests = await apiRequest('GET', '/api/guests');
+                currentGuests.sort((a, b) => a.name.localeCompare(b.name));
+                updateStats();
+                applyFilter(currentFilter);
+            } catch (error) {
+                console.error('Erro ao carregar convidados:', error);
+            }
+        }
+
+        async function togglePresence(id, present) {
+            try {
+                await apiRequest('POST', `/api/guests/${id}/presence`, { present });
+                await loadGuests();
+            } catch (error) {
+                console.error('Erro ao alterar presença:', error);
+                alert('Erro ao alterar presença. Tente novamente.');
+            }
+        }
+
+        async function deleteGuest(id, name) {
+            if (!confirm(`Tem certeza que deseja remover ${name}?`)) {
+                return;
+            }
+            
+            try {
+                await apiRequest('DELETE', `/api/guests/${id}`);
+                await loadGuests();
+            } catch (error) {
+                console.error('Erro ao remover convidado:', error);
+                alert('Erro ao remover convidado. Tente novamente.');
+            }
+        }
+
+        async function addGuest(name, side) {
+            try {
+                await apiRequest('POST', '/api/guests', { name, side, present: false });
+                await loadGuests();
+                hideElement('add-guest-modal');
+                document.getElementById('add-guest-form').reset();
+            } catch (error) {
+                console.error('Erro ao adicionar convidado:', error);
+                alert('Erro ao adicionar convidado. Tente novamente.');
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Busca de convidados
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', searchGuests);
+
+            // Modal de confirmação
+            document.getElementById('confirm-yes').addEventListener('click', () => confirmPresence(true));
+            document.getElementById('confirm-no').addEventListener('click', () => confirmPresence(false));
+            document.getElementById('close-modal').addEventListener('click', () => hideElement('confirm-modal'));
+
+            // Modal de login
+            document.getElementById('admin-btn').addEventListener('click', () => showElement('login-modal'));
+            document.getElementById('close-login').addEventListener('click', () => hideElement('login-modal'));
+            
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                login(username, password);
+            });
+
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                isLoggedIn = false;
+                showPage('main-page');
+                document.getElementById('login-form').reset();
+            });
+
+            // Filtros
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    applyFilter(this.dataset.filter);
+                });
+            });
+
+            // Modal adicionar convidado
+            document.getElementById('add-guest-btn').addEventListener('click', () => showElement('add-guest-modal'));
+            document.getElementById('close-add-guest').addEventListener('click', () => hideElement('add-guest-modal'));
+            
+            document.getElementById('add-guest-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('guest-name-input').value;
+                const side = document.getElementById('guest-side-select').value;
+                addGuest(name, side);
+            });
+
+            // Fechar modais clicando no overlay
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // CSS adicional para filtros ativos
+        const style = document.createElement('style');
+        style.textContent = `
+            .filter-btn.active {
+                background: var(--primary);
+                color: var(--primary-foreground);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
